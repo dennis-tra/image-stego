@@ -149,7 +149,7 @@ Encoded image: -> too large (~11.5 MB) and perceptually the same as above (in my
 
 Chunking of the original image (JPEG-version):
 
-![Encoded image with chunk overlay](docs/cat.checker.png)
+![Encoded image with chunk overlay](docs/cat.checker.jpg)
 
 Manipulated image (JPEG-version):
 
