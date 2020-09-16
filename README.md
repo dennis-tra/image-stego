@@ -1,6 +1,6 @@
 # image-stego
 
-Steganography-based image integrity - verify the integrity of individual parts of an image without the need for secondary information.
+Steganography-based image integrity - embed Merkle tree nodes into chunks of an image so that each chunk's integrity can be verified on its own.
 
 ![Verified image with marked manipulated parts](docs/porsche.overlay.png)
 
