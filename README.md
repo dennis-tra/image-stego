@@ -125,7 +125,6 @@ There are several limitations that come to my mind I just want to list here:
 - It's actually unnecessary to embed the Merkle tree information in the image itself but to save it separately (maybe header information or a separate file). However, having all verification information in one place has its advantages too.
 - Cropping is not supported yet because there needs to be a mechanism to find the chunk dimensions independently of the image size.
 - The `Chunk` struct implements the Gos `Writer` interface to encode data in the LSBs. This means only whole bytes can be written, which leads to wasted space for meta-information like 1. How many hashes are encoded in this chunk, 2. which side should this hash be appended/prepended to calculate the root hash? Especially the latter information is a simple boolean flag which wastes a whole byte.
-- I have no idea of a compelling use case. Maybe the HN community has some ideas. Follow the related posts:
 
 ## Usage
 
