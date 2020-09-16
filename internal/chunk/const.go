@@ -11,7 +11,7 @@ const (
 	// The number of bits occupied by the side information of a merkle tree leaf.
 	MerkleSideBitLength = 8
 
-	// The number of bits occupied by the information of how many merkle tree leafs are encoded in the chunk.
+	// The number of bits occupied by the information of how many merkle tree leaves are encoded in the chunk.
 	PathCountBitLength = 8
 
 	// The number of bits in a byte.

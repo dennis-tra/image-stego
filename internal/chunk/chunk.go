@@ -8,6 +8,7 @@ import (
 	"io"
 
 	"dennis-tra/image-stego/pkg/bit"
+
 	"github.com/cbergoon/merkletree"
 	"github.com/icza/bitio"
 )
@@ -72,7 +73,7 @@ func (c *Chunk) MaxY() int {
 
 // CalculateHash calculates the SHA256 hash of the 7 most significant bits. The least
 // significant bit (LSB) is not considered in the hash generation as it is used to
-// store the (derived) Merkle leafs/nodes.
+// store the (derived) Merkle leaves/nodes.
 // Note: From an implementation point of view the LSB is actually considered but
 // always overwritten by a 0.
 // This method (among Equal) lets Chunk conform to the merkletree.Content interface.

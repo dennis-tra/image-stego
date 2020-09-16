@@ -5,7 +5,6 @@ import (
 	"math"
 )
 
-
 // CalculateChunkBounds takes the given *image.RGBA and calculates the optimal distribution of image chunks
 // to encode the merkle tree data.
 //
@@ -36,7 +35,7 @@ func CalculateChunkBounds(rgba *image.RGBA) [][]image.Rectangle {
 	for {
 		chunkCount += 2
 		// neededBitsPerChunk answers the question: How many bits do we need to store the merkle tree leaves if
-		// we had chunkCount many chunks. The more chunks -> the more merkle leafs -> the less data can be saved
+		// we had chunkCount many chunks. The more chunks -> the more merkle leaves -> the less data can be saved
 		// into one chunk.
 
 		// The number of hashes that need to be saved into each chunk based on the total chunk count.
