@@ -48,7 +48,7 @@ Having prepared the image in such a way each chunk holds enough information to i
 
 ## The Results
 
-Original image:
+Original image (w: 1038px, h: 435px):
 
 ![Original image](data/porsche.jpg)
 
@@ -124,11 +124,12 @@ There are several limitations that come to my mind I just want to list here:
 - The original image needs to be altered
 - It's actually not necessary to embed the merkle tree information in the image itself but to save it separately (maybe header information or a separate file). However having all verification information in one place has its advantages too.
 - Cropping is not supported yet because there needs to be a mechanism to find the chunk dimensions independently of the image size.
+- The `Chunk` struct implements the Gos `Writer` interface to encode data in the LSBs. This means only whole bytes can be written which leads to wasted space for meta information like: 1. How many hashes are encoded in this chunk, 2. which side should this hash be appended/prepended to to calculate the root hash. Especially the latter information is a simple boolean flag which wastes a whole byte.
 - I have no idea of a compelling use case. Maybe the HN community has some ideas. Follow the corresponding posts:
 
-## Another example
 
+## Timestamped commits
 
+([Verify here](https://verify.originstamp.com/)):
 
-Timestamped commits ([verify here](https://verify.originstamp.com/)):
 - 9b54dc5b4b912b0c3f5944c1bd7ac008b16beb6e
