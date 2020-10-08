@@ -9,20 +9,20 @@ Steganography-based image integrity - Merkle tree nodes embedded into image chun
 ## Table of Contents
 
 - [Background](#background)
-- [Manipulation detection](#manipulation-detection)
-    - [Overview](#overview)
-    - [Method](#method)
-    - [Example](#example)
+- [Manipulation Detection](#manipulation-detection)
+  - [Overview](#overview)
+  - [Method](#method)
+  - [Example](#example)
 - [Results](#results)
-    - [Original Image](#original-image) | [Encoded Image](#encoded-image) | [Chunking](#chunking)
-    - [Manipulated Image](#manipulated-image) | [Manipulation Detection](#manipulation-detection)
+  - [Original Image](#original-image) | [Encoded Image](#encoded-image) | [Chunking](#chunking)
+  - [Manipulated Image](#manipulated-image) | [Detection](#detection)
 - [Usage](#usage)
 - [Reproduction](#reproduction)
-    - [Encoding](#encoding)
-    - [Decoding](#decoding)
+  - [Encoding](#encoding)
+  - [Decoding](#decoding)
 - [Limitations](#limitations)
 - [Second example](#second-example)
-- [Timestamped commits](#timestamped-commits)
+- [Timestamps](#timestamps)
 
 ## Background
 
@@ -30,7 +30,7 @@ Tamper-proof timestamping of digital content (like images) is based on generatin
 
 Especially if the digital content is an image, there is the disadvantage of just needing to change one pixel (actually only one bit), and the resulting hash will be completely different. However, the original image will be perceptually identical. In most other use-cases (I'm aware of), this is a huge advantage though.
 
-## Manipulation detection
+## Manipulation Detection
 
 ### Overview
 
@@ -71,7 +71,7 @@ Now the image is prepared so that each chunk holds enough information to verify 
 ## Results
 
 ### Original Image
- 
+
 (w: 1038px, h: 435px)
 
 ![Original image](data/porsche.jpg)
@@ -86,13 +86,13 @@ Perceptually identical
 
 ![Encoded image with chunk overlay](docs/porsche.checker.png)
 
-### Manipulated Image 
+### Manipulated Image
 
 Can you spot the manipulation?
 
 ![Manipulated image](docs/porsche.tampered.png)
 
-### Manipulation Detection
+### Detection
 
 Decoded image
 
@@ -101,6 +101,7 @@ Decoded image
 ## Usage
 
 First you need to build the binary:
+
 ```shell
 go build -o stego cmd/stego/main.go
 ```
@@ -125,7 +126,7 @@ To reproduce the results build the tool as described above. Then take the exampl
 ./stego -e -o="out" data/porsche.jpg
 ```
 
-Now you'll find the encoded image in the `./out/` folder along with an image that shows the chunks. 
+Now you'll find the encoded image in the `./out/` folder along with an image that shows the chunks.
 
 ### Decoding
 
@@ -172,11 +173,10 @@ There are several limitations that come to my mind I just want to list here:
 - Cropping is not supported yet because there needs to be a mechanism to find the chunk dimensions independently of the image size.
 - The `Chunk` struct implements the Gos `Writer` interface to encode data in the LSBs. This means only whole bytes can be written, which leads to wasted space for meta-information like 1. How many hashes are encoded in this chunk, 2. which side should this hash be appended/prepended to calculate the root hash? Especially the latter information is a simple boolean flag which wastes a whole byte.
 - If an adversary knew about the encoding it is easy to invalidate it for the whole image
- 
+
 ## Second example
 
 You can find the second example [here](./examples/README.md).
-
 
 ## Timestamps
 
