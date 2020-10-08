@@ -14,6 +14,8 @@ Steganography-based image integrity - Merkle tree nodes embedded into image chun
     - [Method](#method)
     - [Example](#example)
 - [Results](#results)
+    - [Original Image](#original-image) | [Encoded Image](#encoded-image) | [Chunking](#chunking)
+    - [Manipulated Image](#manipulated-image) | [Manipulation Detection](#manipulation-detection)
 - [Usage](#usage)
 - [Reproduction](#reproduction)
     - [Encoding](#encoding)
@@ -68,26 +70,33 @@ Now the image is prepared so that each chunk holds enough information to verify 
 
 ## Results
 
-Original image (w: 1038px, h: 435px):
+### Original Image
+ 
+(w: 1038px, h: 435px)
 
 ![Original image](data/porsche.jpg)
 
-Encoded image:
+### Encoded Image
+
+Perceptually identical
 
 ![Encoded image](docs/porsche.png)
 
-Chunking of the original image:
+### Chunking
 
 ![Encoded image with chunk overlay](docs/porsche.checker.png)
 
-Manipulated image:
+### Manipulated Image 
+
+Can you spot the manipulation?
 
 ![Manipulated image](docs/porsche.tampered.png)
 
-Decoded image:
+### Manipulation Detection
+
+Decoded image
 
 ![Verified image with marked manipulated parts](docs/porsche.overlay.png)
-
 
 ## Usage
 
@@ -162,7 +171,8 @@ There are several limitations that come to my mind I just want to list here:
 - It's actually unnecessary to embed the Merkle tree information in the image itself but to save it separately (maybe header information or a separate file). However, having all verification information in one place has its advantages too.
 - Cropping is not supported yet because there needs to be a mechanism to find the chunk dimensions independently of the image size.
 - The `Chunk` struct implements the Gos `Writer` interface to encode data in the LSBs. This means only whole bytes can be written, which leads to wasted space for meta-information like 1. How many hashes are encoded in this chunk, 2. which side should this hash be appended/prepended to calculate the root hash? Especially the latter information is a simple boolean flag which wastes a whole byte.
-
+- If an adversary knew about the encoding it is easy to invalidate it for the whole image
+ 
 ## Second example
 
 You can find the second example [here](./examples/README.md).
