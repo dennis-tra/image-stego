@@ -2,7 +2,7 @@
 
 # image-stego
 
-[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=roundd-square)](https://github.com/RichardLitt/standard-readme) [![Go Report Card](https://goreportcard.com/badge/dennis-tra/image-stego)](https://goreportcard.com/report/dennis-tra/image-stego)
 
 Steganography-based image integrity - Merkle tree nodes embedded into image chunks so that each chunk's integrity can be verified on its own. [Jump to the results](#results).
 
