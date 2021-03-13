@@ -1,4 +1,4 @@
-![Verified image with marked manipulated parts](docs/porsche.overlay.png)
+![Verified image with marked manipulated parts](docs/car.overlay.png)
 
 # image-stego
 
@@ -74,29 +74,29 @@ Now the image is prepared so that each chunk holds enough information to verify 
 
 (w: 1038px, h: 435px)
 
-![Original image](data/porsche.jpg)
+![Original image](data/car.jpg)
 
 ### Encoded Image
 
 Perceptually identical
 
-![Encoded image](docs/porsche.png)
+![Encoded image](docs/car.png)
 
 ### Chunking
 
-![Encoded image with chunk overlay](docs/porsche.checker.png)
+![Encoded image with chunk overlay](docs/car.checker.png)
 
 ### Manipulated Image
 
 Can you spot the manipulation?
 
-![Manipulated image](docs/porsche.tampered.png)
+![Manipulated image](docs/car.tampered.png)
 
 ### Detection
 
 Decoded image
 
-![Verified image with marked manipulated parts](docs/porsche.overlay.png)
+![Verified image with marked manipulated parts](docs/car.overlay.png)
 
 ## Usage
 
@@ -123,7 +123,7 @@ Usage of ./stego:
 To reproduce the results build the tool as described above. Then take the example image and encode it by running:
 
 ```shell
-./stego -e -o="out" data/porsche.jpg
+./stego -e -o="out" data/car.jpg
 ```
 
 Now you'll find the encoded image in the `./out/` folder along with an image that shows the chunks.
@@ -133,7 +133,7 @@ Now you'll find the encoded image in the `./out/` folder along with an image tha
 Run the following command to verify that the image has not been tampered with:
 
 ```shell
-./stego -d out/porsche.png
+./stego -d out/car.png
 ```
 
 You should see the following output:
@@ -146,7 +146,7 @@ You should see the following output:
 Manipulate the image and run the above command again (don't save the image as JPEG as the data in the LSBs wouldn't survive the compression):
 
 ```shell
-./stego -d out/porsche.png
+./stego -d out/car.png
 ```
 
 You should see the following output:
@@ -160,7 +160,7 @@ You should see the following output:
 2020/09/16 08:10:30   413       278cba1daf96d84165f8aa69d184e63df5c79f3a4c31cc6864e148c0317c713d
 ...
 2020/09/16 08:10:30 Drawing overlay image of altered regions...
-2020/09/16 08:10:30 Saving overlay image: out/porsche.overlay.png
+2020/09/16 08:10:30 Saving overlay image: out/car.overlay.png
 ```
 
 ## Limitations
