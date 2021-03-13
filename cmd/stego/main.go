@@ -37,7 +37,7 @@ func main() {
 
 	for _, filename := range flag.Args() {
 
-		if *decodePtr{
+		if *decodePtr {
 			err = chunk.Decode(filename)
 		} else if *encodePtr {
 			err = chunk.Encode(filename, *outputPtr)
